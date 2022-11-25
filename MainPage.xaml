@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BindingContext="{Binding  MainpageViewModel, Source={StaticResource ServiceLocator}}"
+             x:Class="CreditMaster.MainPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <ListView Grid.Row="0"
+                  Grid.Column="0"
+                  Grid.ColumnSpan="3"
+                  ItemsSource="{Binding Acstuents}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <VerticalStackLayout>
+                            <Label Text="{Binding acName}"></Label>
+                        </VerticalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+        <Button Grid.Row="1"
+                Grid.Column="0"
+                Text="Initalize"
+                Command="{Binding InitalizeCommand}">
+                
+        </Button>
+        <Button Grid.Row="1"
+                Grid.Column="1"
+                Text="add"
+                Command="{Binding AddCommand}">
+
+        </Button>
+        <Button Grid.Row="1"
+                Grid.Column="2"
+                Text="List"
+                Command="{Binding ListCommand}">
+
+        </Button>
+    </Grid>
+
+</ContentPage>
